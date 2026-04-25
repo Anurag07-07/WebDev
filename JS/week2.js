@@ -151,9 +151,11 @@ worker.postMessage('./a.txt')
 worker.on('message',(msg)=>{
   console.log(msg);
 })
+
 worker.on('error',(err)=>{
   console.log(err);
 })
+
 worker.on('exit',(exit)=>{
   console.log(exit);
 })
