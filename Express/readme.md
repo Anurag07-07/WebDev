@@ -638,3 +638,124 @@ https://api.example.com:5000/users
 > **Route = Andar kaunsa room/service**
 
 Yahi bol diya to interviewer khush.
+
+
+
+To create an **HTTP server from scratch**, interview me ya practical me usually matlab hota hai **without Express**, directly Node.js built-in `http` module use karke.
+
+## Basic HTTP Server from Scratch (Node.js)
+
+```js
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+    
+    if (req.url === "/" && req.method === "GET") {
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        res.end("Home Page");
+    }
+
+    else if (req.url === "/about" && req.method === "GET") {
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        res.end("About Page");
+    }
+
+    else {
+        res.writeHead(404, { "Content-Type": "text/plain" });
+        res.end("Page Not Found");
+    }
+});
+
+server.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
+```
+
+---
+
+# Kaise kaam karta hai
+
+## 1. `http.createServer()`
+
+Ye server object banata hai.
+
+```js
+http.createServer((req,res)=>{})
+```
+
+Har request pe callback chalega.
+
+---
+
+## 2. `req`
+
+Incoming request data:
+
+```js
+req.url      // route
+req.method   // GET POST PUT DELETE
+req.headers
+```
+
+---
+
+## 3. `res`
+
+Response bhejne ke liye:
+
+```js
+res.writeHead(statusCode, headers)
+res.end(data)
+```
+
+---
+
+# Browser me test
+
+```txt
+http://localhost:3000/
+http://localhost:3000/about
+```
+
+---
+
+# Agar JSON API banana ho
+
+```js
+if(req.url === "/user"){
+   res.writeHead(200, {"Content-Type":"application/json"});
+   res.end(JSON.stringify({
+      name:"Anurag",
+      age:22
+   }));
+}
+```
+
+---
+
+# Interview Answer
+
+> I can create an HTTP server from scratch using Node.js built-in `http` module.
+> `createServer()` handles incoming requests, I inspect `req.url` and `req.method`, then send response using `res.writeHead()` and `res.end()`.
+
+---
+
+# Agar truly scratch (TCP level) puchhe
+
+Phir matlab raw sockets using `net` module — manually HTTP parse karna. Rare but advanced.
+
+---
+
+# Real Industry
+
+* Small apps → `http`
+* Normal backend → Express / Fastify / NestJS
+* High perf → Go / Rust / Java etc.
+
+---
+
+# Ek line me:
+
+> HTTP server from scratch = request lo, route check karo, response bhejo.
+
+Agar chaho mai **Express jaisa mini framework scratch se kaise banta hai Node.js me** bhi dikha sakta hoon.
