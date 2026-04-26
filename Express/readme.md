@@ -419,3 +419,222 @@ app.delete("/delete-todo/:id", deleteTodo);
 * `POST` = Add new data
 * `PUT` = Update existing data
 * `DELETE` = Remove data
+
+
+
+
+
+****Port** aur **Route** dono backend/server me use hote hain, but kaam alag hai.
+
+## 1. Port kya hota hai?
+
+**Port = Gate number / Entry point of server**
+
+Server machine pe bahut services chal sakti hain. Har service ko ek number diya jata hai jise **port** bolte hain.
+
+Example:
+
+* `3000` → Node.js app
+* `5000` → Python Flask app
+* `80` → HTTP default
+* `443` → HTTPS default
+
+Jab browser request bhejta hai:
+
+```txt
+http://localhost:3000
+```
+
+Yaha:
+
+* `localhost` = machine
+* `3000` = port
+
+Matlab request machine ke **port 3000** pe ja rahi hai.
+
+---
+
+## 2. Route kya hota hai?
+
+**Route = Server ke andar path / URL mapping**
+
+Port ke through server tak pahuchne ke baad, route decide karta hai **kis endpoint pe jaana hai**.
+
+Example:
+
+```txt
+http://localhost:3000/users
+http://localhost:3000/products
+http://localhost:3000/login
+```
+
+Yaha sab port same `3000` hai, but routes alag:
+
+* `/users`
+* `/products`
+* `/login`
+
+---
+
+## Real Life Example
+
+Socho ek hospital hai:
+
+* **Port** = Hospital ka main gate number
+* **Route** = Andar ka department path
+
+```txt
+Gate 3000 → Cardiology (/heart)
+Gate 3000 → OPD (/opd)
+Gate 3000 → Emergency (/emergency)
+```
+
+---
+
+## Express Example
+
+```js
+const express = require("express");
+const app = express();
+
+// Routes
+app.get("/", (req,res)=>{
+   res.send("Home");
+});
+
+app.get("/about", (req,res)=>{
+   res.send("About");
+});
+
+// Port
+app.listen(3000, ()=>{
+   console.log("Server running on port 3000");
+});
+```
+
+Yaha:
+
+* `3000` = Port
+* `/` and `/about` = Routes
+
+---
+
+## Short Difference
+
+| Port                      | Route                           |
+| ------------------------- | ------------------------------- |
+| Server ka number          | URL ka path                     |
+| Server identify karta hai | Feature/page identify karta hai |
+| Example: 3000             | Example: /login                 |
+
+---
+
+## Full URL Breakdown
+
+```txt
+http://localhost:3000/login
+```
+
+* `http` = protocol
+* `localhost` = host
+* `3000` = port
+* `/login` = route
+
+---
+
+## Ek line me:
+
+**Port batata hai request kis server service pe jayegi, Route batata hai server ke andar kis functionality pe jayegi.**
+**
+
+
+
+Interview me simple aur professional tareeke se bolo:
+
+**Port aur Route ka difference:**
+
+> Port ek numerical communication endpoint hota hai jiske through client server se connect karta hai.
+> Jaise `localhost:3000` me `3000` port hai.
+>
+> Route server ke andar specific URL path hota hai jo batata hai request kis resource ya functionality ke liye hai.
+> Jaise `/login`, `/users`, `/products`.
+>
+> Example: `http://localhost:3000/login` me `3000` port hai aur `/login` route hai.
+
+## Short Version (30 sec answer)
+
+> Port decides kis service/server process ko request milegi, aur route decides us service ke andar kaunsa handler request process karega.
+
+## Agar interviewer aur puche:
+
+**Q: Kya ek port pe multiple routes ho sakte hain?**
+
+> Haan, ek hi server ek port pe run karke multiple routes handle kar sakta hai.
+
+**Q: Kya ek machine pe multiple ports ho sakte hain?**
+
+> Haan, alag alag applications different ports pe run kar sakti hain.
+
+## Pro Tip
+
+Confident tone me bolo, example do, bas ratta mat maro. Interviewer ko clarity chahiye.
+
+
+Interview me aise bolo:
+
+> **Host** us machine ya system ka address hota hai jahan server run ho raha hai.
+> Ye domain name, IP address, ya local machine name ho sakta hai.
+
+### Example:
+
+```txt id="0n3h5k"
+http://localhost:3000/login
+```
+
+Yaha:
+
+* `localhost` = host
+* `3000` = port
+* `/login` = route
+
+### Host ke Types:
+
+1. **localhost**
+   Apna khud ka computer
+
+2. **IP Address**
+
+```txt id="p26qgo"
+http://192.168.1.10:3000
+```
+
+3. **Domain Name**
+
+```txt id="5gmv7w"
+https://google.com
+```
+
+---
+
+## Short Interview Answer:
+
+> Host batata hai request kis machine/server ko bhejni hai.
+
+## Full URL Breakdown:
+
+```txt id="4sv1f5"
+https://api.example.com:5000/users
+```
+
+* `https` = protocol
+* `api.example.com` = host
+* `5000` = port
+* `/users` = route
+
+## Ek line me yaad rakho:
+
+> **Host = Kaunsa computer**
+> **Port = Us computer ka kaunsa gate**
+> **Route = Andar kaunsa room/service**
+
+Yahi bol diya to interviewer khush.
