@@ -49,10 +49,7 @@
 // Data from browser comes in string format name=ABC&age=45 to convert into json 
 
 //////////////////////////Create a Todo////////////////////////////////
-
-
 import e from "express";
-
 
 const app = e()
 const PORT = 3000
@@ -67,14 +64,18 @@ let Todo = [{
 //Show all Todo
 app.get('/show-todo', (req, res) => {
   res.send(Todo)
-})
+})-
 
 //Add Todo
 app.post('/add-todo', (req, res) => {
+
   try {
     const {
       work
     } = req.body
+
+    console.log(req.body);
+    
     //Add The Todo Inside Array
     let newTodo = {
       id: Todo.length + 1,
