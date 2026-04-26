@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  },
+  "name": "express",
+  "version": "1.0.0",
+  "description": "Haan bhai, backend me status codes aur methods samajhna **bahut important** hai. Real API banate time yehi use hote hain. Main **Express.js examples** ke saath samjha deta hoon.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
