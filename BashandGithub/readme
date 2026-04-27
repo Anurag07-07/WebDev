@@ -1,0 +1,33 @@
+pwd (Print Working Directory) = to Check the current Directory
+Terminal is an interface 
+cd foldername => Change Directory
+cd .. => go back to previous directory
+ls => listing all the files and folder in current directory 
+ls -la => detailed listing 
+mkdir foldername => make directory 
+example => mkdir test 
+touch filename => to make a file
+example => touch main.js
+cat filename => To see data inside the file
+example => cat main.js
+vi or vim filename => to write something inside file
+example => vim main.js 
+After that press i for insertion mode 
+To save the value 
+press esc => then type :x or :wq! and enter to save the file 
+mv => to move the file 
+example => mv filename or foldername onwhich folder you have to move 
+example => mv main.js JS 
+It is also use to change the name
+example => mv main.js index.js 
+cp to copy the file   
+cp index.js test 
+cp -r folder1 folder2 
+create a new file with samename and data
+cp filename newfilename
+cp index.js main.js 
+rm -rf => to delete the file or folder
+example => rm -rf main.js or rm -rf foldername 
+
+node to open node compiler 
+press ctrl+c to exit
