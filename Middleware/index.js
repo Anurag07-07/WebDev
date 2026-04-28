@@ -1,10 +1,10 @@
-const {z} = require('zod')
+const {z, email} = require('zod')
 const express = require('express')
 const app = express()
 
 app.use(express.json())
 
-app.use(express.urlencoded({extended:true}))
+// app.use(express.urlencoded({extended:true}))
 
 
 //Basic Approach of Validation////////////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +95,8 @@ app.use(express.urlencoded({extended:true}))
 const userValidation = z.object({
   username:z.string().min(5).max(50),
   password:z.string().min(8).max(15).regex(/\d/),
-  age:z.coerce.number()
+  age:z.coerce.number(),
+  email:z.email().endsWith("@gmail.com")
 })
 
 //Check if array contains only number or not
@@ -121,7 +122,9 @@ function signup(req,res,next){
       message:`Invalid Data`
     })
   }else{
-    const {username,password,age} = req.body
+    const {username,password,age,email} = req.body
+    console.log(req.body);
+    
     if (username==='Anurag' && password==='0123456789') {
       next()
     }
@@ -130,6 +133,7 @@ function signup(req,res,next){
     })
   }
 }
+
 const message = ` Maclaren : $330K 
                   Chiron   :  5M 
 `
